@@ -102,6 +102,28 @@ contactForm.addEventListener('submit', async (event) => {
   }
 });
 
+function hideLoader() {
+  if (!pageLoader) {
+    return;
+  }
+  if (window.gsap && typeof gsap.to === 'function') {
+    gsap.to(pageLoader, {
+      opacity: 0,
+      duration: 0.8,
+      delay: 0.3,
+      onComplete: () => {
+        pageLoader.style.display = 'none';
+        pageLoader.remove();
+      },
+    });
+  } else {
+    pageLoader.style.opacity = '0';
+    pageLoader.style.pointerEvents = 'none';
+    pageLoader.style.display = 'none';
+    pageLoader.remove();
+  }
+}
+
 function updateLoader() {
   let value = 0;
   const interval = setInterval(() => {
@@ -110,14 +132,16 @@ function updateLoader() {
       value = 100;
       loaderValue.textContent = `${value}%`;
       clearInterval(interval);
-      gsap.to(pageLoader, { opacity: 0, duration: 0.8, delay: 0.3, onComplete: () => pageLoader.remove() });
-      gsap.from('.page-header, .hero-title, .hero-card, .section-header, .project-card, .contact-grid', {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.12,
-        ease: 'power3.out',
-      });
+      hideLoader();
+      if (window.gsap && typeof gsap.from === 'function') {
+        gsap.from('.page-header, .hero-title, .hero-card, .section-header, .project-card, .contact-grid', {
+          y: 40,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.12,
+          ease: 'power3.out',
+        });
+      }
       return;
     }
     loaderValue.textContent = `${value}%`;
