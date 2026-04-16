@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glass Brutalist Portfolio</title>
+    <meta name="description" content="A glassmorphism-inspired developer portfolio." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="theme-dark">
+    <div id="pageLoader" class="page-loader">
+      <div class="loader-content">
+        <span>LOADING</span>
+        <span id="loaderValue">0%</span>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <header class="page-header container">
+        <div class="brand-wrap">
+            <span class="brand-mark">MI</span>
+            <div>
+              <p class="eyebrow">Muhammad Ismail</p>
+              <h1>Software Engineering Undergraduate</h1>
+            </div>
+          </div>
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">LIGHT</button>
+        </header>
+
+      <main class="page-main container">
+        <section class="hero-section">
+          <div class="hero-copy">
+            <span class="eyebrow">Comsats University Islamabad</span>
+            <h2 class="hero-title">Building product-focused software with structure, performance, and polished glass-style UI.</h2>
+            <p class="hero-description">
+              I am Muhammad Ismail, a Software Engineering undergraduate who blends backend logic with clean front-end experience, from Java systems to modern web products.
+              <a href="#projects" class="button button-primary">See Projects</a>
+              <a href="#contact" class="button button-secondary">Contact Me</a>
+            </div>
+          </div>
+
+          <div class="hero-card glass-card interactive-card" id="heroCard">
+            <div class="hero-card-header">
+              <span>Featured</span>
+              <strong>Glass interface concept</strong>
+            </div>
+            <div class="hero-card-body">
+              <p>Hover and move your mouse for a subtle parallax glass effect.</p>
+            </div>
+            <div class="hero-card-meta">
+              <span>Node.js backend</span>
+              <span>GSAP motion</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="projects-section" id="projects">
+          <div class="section-header">
+            <span class="eyebrow">Products</span>
+            <h2>Live Project Gallery</h2>
+          </div>
+          <div class="section-decor">PROJECTS</div>
+          <div class="project-grid" id="projectGrid"></div>
+        </section>
+
+        <section class="contact-section" id="contact">
+          <div class="section-header">
+            <span class="eyebrow">Get In Touch</span>
+            <h2>Reach out for collaborations, product work, and new ideas.</h2>
+          </div>
+          <div class="contact-grid">
+            <div class="glass-card contact-summary">
+              <p>
+                I am available for product work, internship opportunities, and software engineering collaborations.
+              </p>
+              <ul>
+                <li>Undergraduate in Software Engineering</li>
+                <li>Back-end and front-end project development</li>
+                <li>Contact via email or the form below</li>
+              </ul>
+              <p style="margin-top:1rem; color: var(--accent);">Email: <a href="mailto:MIsmail1571440@gmail.com" style="color: inherit; text-decoration: underline;">MIsmail1571440@gmail.com</a></p>
+            </div>
+            <form class="glass-card contact-form" id="contactForm">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" required placeholder="Your name" />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" required placeholder="you@example.com" />
+              </label>
+              <label>
+                <span>Message</span>
+                <textarea name="message" rows="5" required placeholder="Tell me about your next project"></textarea>
+              </label>
+              <button type="submit" class="button button-primary">Send message</button>
+              <p id="contactStatus" class="form-status"></p>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="page-footer container">
+        <p>Built and designed by Muhammad Ismail — Software Engineering undergraduate at Comsats University Islamabad.</p>
+      </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-r2UfZ4g9Q2w2IjQmi8NGjHSN9L7JVy+aF8ZjZqX+7YxFKBvHYvx+kIFlERu+OOgZhist5sVpsIRLtLzO7Dx8tQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

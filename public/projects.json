@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "inventory-management-system",
+    "title": "Inventory Management System",
+    "category": "Java Application",
+    "description": "An object-oriented inventory system built with dynamic data structures and Java Streams for scalable, type-safe stock processing.",
+    "tags": ["Java", "OOP", "Data Structures"],
+    "link": "https://github.com/Ismail836/Inventory-management-system"
+  },
+  {
+    "slug": "eventful-cart",
+    "title": "Eventful Cart",
+    "category": "Web Product",
+    "description": "A responsive, season-aware shopping experience that surfaces curated gift recommendations with polished glass-style UI elements.",
+    "tags": ["Web UI", "Responsive", "Product Design"],
+    "link": "https://eventful-cart.vercel.app"
+  }
+]
