@@ -30,41 +30,54 @@ themeToggle.addEventListener('click', () => {
 });
 
 function fetchProjects() {
-  fetch('/api/projects')
-    .then((response) => response.json())
-    .then((projects) => {
-      projectGrid.innerHTML = projects
-        .map(
-          (project) => `
-            <article class="glass-card project-card">
-              <div>
-                <p class="project-label">${project.category}</p>
-                <h3 class="project-title">${project.title}</h3>
-                <p class="project-description">${project.description}</p>
-              </div>
-              <div class="project-tags">
-                ${project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('')}
-              </div>
-              <div class="project-footer">
-                <a href="${project.link}" class="project-link" target="_blank" rel="noreferrer">View case</a>
-                <button class="button button-secondary project-action" data-slug="${project.slug}">Track</button>
-              </div>
-            </article>
-          `
-        )
-        .join('');
+  const renderProjects = (projects) => {
+    projectGrid.innerHTML = projects
+      .map(
+        (project) => `
+          <article class="glass-card project-card">
+            <div>
+              <p class="project-label">${project.category}</p>
+              <h3 class="project-title">${project.title}</h3>
+              <p class="project-description">${project.description}</p>
+            </div>
+            <div class="project-tags">
+              ${project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('')}
+            </div>
+            <div class="project-footer">
+              <a href="${project.link}" class="project-link" target="_blank" rel="noreferrer">View case</a>
+              <button class="button button-secondary project-action" data-slug="${project.slug}">Track</button>
+            </div>
+          </article>
+        `
+      )
+      .join('');
 
-      document.querySelectorAll('.project-action').forEach((button) => {
-        button.addEventListener('click', () => {
-          const slug = button.dataset.slug;
-          fetch('/api/project-click', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ slug }),
-          });
+    document.querySelectorAll('.project-action').forEach((button) => {
+      button.addEventListener('click', () => {
+        const slug = button.dataset.slug;
+        fetch('/api/project-click', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ slug }),
         });
       });
+    });
+  };
+
+  fetch('/api/projects')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('API unavailable');
+      }
+      return response.json();
     })
+    .catch(() => fetch('/projects.json').then((response) => {
+      if (!response.ok) {
+        throw new Error('Static project data unavailable');
+      }
+      return response.json();
+    }))
+    .then(renderProjects)
     .catch(() => {
       projectGrid.innerHTML = '<p class="form-status">Unable to load projects right now.</p>';
     });
