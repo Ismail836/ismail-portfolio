@@ -1,0 +1,101 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "project": "Glass Brutalist Portfolio",
+    "owner": "Muhammad Ismail",
+    "generated": "2026-05-19",
+    "generated_by": "manual-agent-curation",
+    "purpose": "Agent-readable knowledge graph of this portfolio codebase. Read this before making changes."
+  },
+  "nodes": [
+    {"id": "portfolio_app", "label": "Glass Brutalist Portfolio", "community": 0, "file_type": "document", "source_file": "README.md", "description": "Full-stack developer portfolio for Muhammad Ismail — web, Java, and game dev showcase."},
+    {"id": "server_js", "label": "Express Server", "community": 1, "file_type": "code", "source_file": "server.js", "description": "Node.js entry point. Serves static files, exposes REST API, handles email and analytics."},
+    {"id": "app_js", "label": "Client App", "community": 2, "file_type": "code", "source_file": "public/app.js", "description": "Frontend logic: theme toggle, project gallery, contact form, loader animations, hero parallax."},
+    {"id": "index_html", "label": "Portfolio Page", "community": 2, "file_type": "code", "source_file": "public/index.html", "description": "Single-page layout: hero, profile, skills, projects grid, contact form."},
+    {"id": "styles_css", "label": "Glassmorphism Styles", "community": 2, "file_type": "code", "source_file": "public/styles.css", "description": "Dark/light themes, glass cards, electric lime accent (#dfff00), responsive grid."},
+    {"id": "projects_json", "label": "Project Data", "community": 3, "file_type": "code", "source_file": "public/projects.json", "description": "JSON array of portfolio projects (slug, title, category, tags, link). Currently 2 projects."},
+    {"id": "env_config", "label": "Environment Config", "community": 4, "file_type": "document", "source_file": ".env.example", "description": "PORT, SMTP settings for Nodemailer contact form."},
+    {"id": "clicks_log", "label": "Click Analytics Log", "community": 1, "file_type": "document", "source_file": "clicks.log", "description": "CSV-style file tracking project click counts and endpoint visits."},
+
+    {"id": "api_projects", "label": "GET /api/projects", "community": 1, "file_type": "code", "source_file": "server.js", "source_location": "line 26"},
+    {"id": "api_project_click", "label": "POST /api/project-click", "community": 1, "file_type": "code", "source_file": "server.js", "source_location": "line 36"},
+    {"id": "api_contact", "label": "POST /api/contact", "community": 1, "file_type": "code", "source_file": "server.js", "source_location": "line 45"},
+    {"id": "api_analytics", "label": "GET /api/analytics", "community": 1, "file_type": "code", "source_file": "server.js", "source_location": "line 78"},
+
+    {"id": "theme_toggle", "label": "Theme Toggle", "community": 2, "file_type": "code", "source_file": "public/app.js", "description": "Dark/light mode via body class + localStorage key 'portfolioTheme'."},
+    {"id": "contact_form", "label": "Contact Form", "community": 2, "file_type": "code", "source_file": "public/app.js", "description": "POSTs name/email/message to /api/contact, shows status feedback."},
+    {"id": "project_gallery", "label": "Project Gallery", "community": 2, "file_type": "code", "source_file": "public/app.js", "description": "Fetches /api/projects, falls back to /projects.json if API unavailable."},
+    {"id": "page_loader", "label": "Page Loader", "community": 2, "file_type": "code", "source_file": "public/app.js", "description": "Animated 0-100% loader; uses GSAP for fade-out and staggered reveal if available."},
+    {"id": "hero_motion", "label": "Hero Card Parallax", "community": 2, "file_type": "code", "source_file": "public/app.js", "description": "Mouse-driven 3D tilt on #heroCard."},
+
+    {"id": "nodemailer", "label": "Nodemailer", "community": 1, "file_type": "document", "source_file": "package.json", "description": "SMTP email transport for contact form."},
+    {"id": "express", "label": "Express", "community": 1, "file_type": "document", "source_file": "package.json"},
+    {"id": "gsap", "label": "GSAP", "community": 2, "file_type": "document", "source_file": "public/index.html", "description": "Loaded from CDN for loader and entrance animations."},
+
+    {"id": "project_inventory", "label": "Inventory Management System", "community": 3, "file_type": "document", "source_file": "public/projects.json", "description": "Java OOP project — GitHub: Ismail836/Inventory-management-system"},
+    {"id": "project_eventful_cart", "label": "Eventful Cart", "community": 3, "file_type": "document", "source_file": "public/projects.json", "description": "Web product — live at eventful-cart.vercel.app"},
+
+    {"id": "commit_initial", "label": "Initial Portfolio", "community": 5, "file_type": "document", "source_file": "git", "description": "e024c78 — glassmorphism portfolio with Node/Express backend"},
+    {"id": "commit_profile", "label": "Profile Image", "community": 5, "file_type": "document", "source_file": "git", "description": "adf28bd — added profile image to hero card"},
+    {"id": "commit_style_fix", "label": "Style & Loading Fix", "community": 5, "file_type": "document", "source_file": "git", "description": "dcb8c5c — latest commit, fixed style and loading problems"}
+  ],
+  "links": [
+    {"source": "server_js", "target": "express", "relation": "imports", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "server_js", "target": "nodemailer", "relation": "imports", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "server_js", "target": "env_config", "relation": "reads", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "server_js", "target": "projects_json", "relation": "serves", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "server_js", "target": "clicks_log", "relation": "writes", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "server_js", "target": "index_html", "relation": "serves_static", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+
+    {"source": "server_js", "target": "api_projects", "relation": "defines", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "server_js", "target": "api_project_click", "relation": "defines", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "server_js", "target": "api_contact", "relation": "defines", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "server_js", "target": "api_analytics", "relation": "defines", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+
+    {"source": "api_projects", "target": "projects_json", "relation": "reads", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "api_project_click", "target": "clicks_log", "relation": "writes", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "api_contact", "target": "nodemailer", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "api_contact", "target": "env_config", "relation": "requires", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+    {"source": "api_analytics", "target": "clicks_log", "relation": "reads", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "server.js"},
+
+    {"source": "index_html", "target": "styles_css", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/index.html"},
+    {"source": "index_html", "target": "app_js", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/index.html"},
+    {"source": "index_html", "target": "gsap", "relation": "references", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/index.html"},
+
+    {"source": "app_js", "target": "api_projects", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+    {"source": "app_js", "target": "api_project_click", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+    {"source": "app_js", "target": "api_contact", "relation": "calls", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+    {"source": "app_js", "target": "projects_json", "relation": "fallback_reads", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+
+    {"source": "app_js", "target": "theme_toggle", "relation": "implements", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+    {"source": "app_js", "target": "contact_form", "relation": "implements", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+    {"source": "app_js", "target": "project_gallery", "relation": "implements", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+    {"source": "app_js", "target": "page_loader", "relation": "implements", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+    {"source": "app_js", "target": "hero_motion", "relation": "implements", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+    {"source": "app_js", "target": "gsap", "relation": "uses_optional", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+
+    {"source": "project_gallery", "target": "projects_json", "relation": "renders", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/app.js"},
+    {"source": "projects_json", "target": "project_inventory", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/projects.json"},
+    {"source": "projects_json", "target": "project_eventful_cart", "relation": "contains", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "public/projects.json"},
+
+    {"source": "portfolio_app", "target": "server_js", "relation": "backend", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "README.md"},
+    {"source": "portfolio_app", "target": "index_html", "relation": "frontend", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "README.md"},
+
+    {"source": "commit_initial", "target": "portfolio_app", "relation": "created", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "git"},
+    {"source": "commit_profile", "target": "index_html", "relation": "modified", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "git"},
+    {"source": "commit_style_fix", "target": "styles_css", "relation": "modified", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": "git"},
+    {"source": "commit_style_fix", "target": "page_loader", "relation": "modified", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": "git"},
+
+    {"source": "theme_toggle", "target": "styles_css", "relation": "toggles_classes_on", "confidence": "INFERRED", "confidence_score": 0.9, "source_file": "public/app.js"},
+    {"source": "project_eventful_cart", "target": "portfolio_app", "relation": "semantically_similar_to", "confidence": "INFERRED", "confidence_score": 0.7, "source_file": "public/projects.json", "note": "Eventful Cart is another project by the same author, hosted separately on Vercel"}
+  ],
+  "communities": {
+    "0": {"label": "Project Overview", "cohesion": 0.92},
+    "1": {"label": "Backend API & Server", "cohesion": 0.88},
+    "2": {"label": "Frontend UI & Interactions", "cohesion": 0.86},
+    "3": {"label": "Portfolio Content", "cohesion": 0.90},
+    "4": {"label": "Configuration", "cohesion": 0.95},
+    "5": {"label": "Git History", "cohesion": 0.80}
+  }
+}

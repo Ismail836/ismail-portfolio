@@ -1,5 +1,8 @@
 node_modules/
+dist/
 .env
-clicks.log
+data/clicks.log
 npm-debug.log
 .DS_Store
+.graphify_detect.json
+.graphify_python

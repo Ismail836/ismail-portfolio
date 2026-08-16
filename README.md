@@ -1,29 +1,68 @@
 # Glass Brutalist Portfolio
 
-A glassmorphism-inspired full-stack portfolio built with HTML, CSS, JavaScript, and Node.js + Express.
+React + Vite frontend and Express API — glassmorphism portfolio with a schedule / life-tracking hub.
 
-## Features
+## Project structure
 
-- Glassmorphism cards with electric lime accent
-- Responsive project gallery using CSS Grid
-- Dynamic `/api/projects` endpoint
-- Contact form powered by Nodemailer
-- Theme toggle with light/dark modes
-- Simple analytics logging for project clicks
+```
+Portfolio/
+├── client/                 # React app (Vite)
+│   ├── public/             # Static assets (profile.jpg, etc.)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── common/     # PageLoader, ThemeToggle
+│   │   │   ├── home/       # Hero, Dashboard, Projects, Contact
+│   │   │   ├── layout/     # Header, Footer
+│   │   │   └── schedule/   # Timetable, Habits, BucketList
+│   │   ├── context/        # ThemeContext
+│   │   ├── hooks/          # useLocalStorage
+│   │   ├── lib/schedule/   # Schedule constants & helpers
+│   │   ├── pages/          # HomePage, SchedulePage
+│   │   └── styles/         # global.css, schedule.css
+│   └── vite.config.js
+├── server/                 # Express API
+│   ├── routes/             # /api/* handlers
+│   ├── lib/                # click analytics
+│   └── index.js
+├── data/
+│   ├── projects.json       # Portfolio projects (edit here)
+│   └── clicks.log          # Analytics (auto-generated)
+├── scripts/                # install helpers
+└── dist/                   # Production build output
+```
 
 ## Setup
 
-1. Rename `.env.example` to `.env` and fill in your email provider settings.
-2. Run:
-
 ```bash
 npm install
+node scripts/setup-esbuild.cjs
 npm run dev
 ```
 
-3. Open `http://localhost:4000`
+**One address for everything:** http://localhost:4000
 
-## Project Content
+| URL | Page |
+|-----|------|
+| http://localhost:4000/ | Portfolio home |
+| http://localhost:4000/schedule | Timetable · Habits · Bucket (use bottom nav) |
 
-- The portfolio currently includes 3 sample projects.
-- Replace the placeholder items in `public/projects.json` with your own product details.
+Use the **Schedule** button on the dashboard, or the hero link — same host, React switches pages without reloading.
+
+Windows path with spaces? See `.npmrc` — run `node scripts/setup-esbuild.cjs` after install, or `.\install.ps1`.
+
+## Production
+
+```bash
+npm run build
+npm start
+```
+
+Open http://localhost:4000
+
+## Edit content
+
+| What | Where |
+|------|--------|
+| Projects | `data/projects.json` |
+| Schedule habits/bucket defaults | `client/src/lib/schedule/index.js` |
+| Email | `.env` (from `.env.example`) |

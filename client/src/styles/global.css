@@ -115,7 +115,7 @@ textarea {
 
 .hero-section {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.9fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.9fr);
   gap: 2rem;
   align-items: start;
   min-height: calc(100vh - 140px);
@@ -123,12 +123,112 @@ textarea {
 }
 
 .hero-copy {
-  max-width: 620px;
+  display: grid;
+  gap: 1.75rem;
+  max-width: 100%;
 }
 
 .hero-sidebar {
   display: grid;
   gap: 1.5rem;
+}
+
+.social-card {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  max-width: 520px;
+}
+
+.social-card--prominent {
+  border-color: rgba(223, 255, 0, 0.28);
+  box-shadow: 0 20px 50px rgba(223, 255, 0, 0.08);
+}
+
+.social-card-header h3 {
+  margin: 0.35rem 0 0;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+}
+
+.social-card-copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.social-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+@media (min-width: 720px) {
+  .social-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.social-link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+
+.social-link:hover {
+  border-color: rgba(223, 255, 0, 0.35);
+  background: var(--accent-soft);
+  transform: translateX(4px);
+}
+
+.social-link-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(223, 255, 0, 0.12);
+  color: var(--accent);
+}
+
+.social-link-icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.social-link-text {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.social-link-text strong {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.social-link-text span {
+  font-size: 0.75rem;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.social-link-arrow {
+  color: var(--accent);
+  font-size: 0.95rem;
+  opacity: 0.7;
 }
 
 .profile-card {
@@ -437,6 +537,14 @@ textarea {
   .contact-grid {
     grid-template-columns: 1fr;
   }
+
+  .social-list {
+    grid-template-columns: 1fr;
+  }
+
+  .social-card {
+    max-width: none;
+  }
   .page-header,
   .page-footer {
     flex-direction: column;
@@ -494,4 +602,56 @@ textarea {
   display: block;
   margin-top: 0.75rem;
   font-size: 2.8rem;
+}
+
+.dashboard-section {
+  padding: 3rem 0 1rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.dashboard-card {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.5rem;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(223, 255, 0, 0.3);
+  box-shadow: 0 20px 50px rgba(223, 255, 0, 0.1);
+}
+
+.dashboard-card--featured {
+  border-color: rgba(223, 255, 0, 0.35);
+  background: linear-gradient(145deg, rgba(223, 255, 0, 0.08), rgba(255, 255, 255, 0.02));
+}
+
+.dashboard-card h3 {
+  margin: 0;
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+}
+
+.dashboard-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.dashboard-card-icon {
+  font-size: 1.5rem;
+}
+
+.dashboard-card-link {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
 }
